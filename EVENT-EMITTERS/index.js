@@ -4,16 +4,19 @@ class Emitter extends EventEmitter {}
 
 const myEmitter = new Emitter();
 
+let fn = function (x) {
+  console.log("Events with param occured " + x);
+};
+
 myEmitter.on("foo", () => {
   console.log("Events occured again");
 });
+
 myEmitter.on("foo", () => {
   console.log("Events occured");
 });
 
-myEmitter.on("foo", (x) => {
-  console.log("Events with param occured again");
-});
+myEmitter.on("foo", fn);
 
 myEmitter.on("bar", (x) => {
   console.log("Events with param occured with bar");
@@ -23,8 +26,10 @@ myEmitter.once("barOnce", (x) => {
   console.log("Events with param occured with barOnce");
 });
 
-myEmitter.emit("foo", "a");
-myEmitter.emit("bar");
-
-myEmitter.emit("barOnce");
-myEmitter.emit("barOnce");
+myEmitter.emit("foo", "again");
+myEmitter.off("foo", fn);
+console.log("Now what happens");
+myEmitter.emit("foo");
+// myEmitter.emit("bar");
+// myEmitter.emit("barOnce");
+// myEmitter.emit("barOnce");
