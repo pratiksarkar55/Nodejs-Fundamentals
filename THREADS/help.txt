@@ -1,0 +1,13 @@
+Thread has ready,running,sleep state.
+CPU always switches the threads from ready<-> running in different cores.
+Physical core is actual core and logical cores are capacity of each core to do work of 2 cores.So 6 physical cores can have 12 logical cores.
+Each thread has own event loop
+console from worker thread happens via main thread.So if main thread is blocked, worker thread won't be able to console
+If I run a worker thread and start downloading a file on that thread but then block the main thread, the main thread will download the file.
+
+core utilization = (Total given time-idle time)/Total given time
+
+total cpu utlization = (core utilization1+core utilization2....+core utilizationN)/N number of cores
+
+total process cpu ultization = (core utilizationByOnlyProcess1+core utilizationByOnlyProcess2....+core utilizationByOnlyProcessN)/N number of cores
+
