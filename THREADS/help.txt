@@ -11,3 +11,13 @@ total cpu utlization = (core utilization1+core utilization2....+core utilization
 
 total process cpu ultization = (core utilizationByOnlyProcess1+core utilizationByOnlyProcess2....+core utilizationByOnlyProcessN)/N number of cores
 
+
+Creating thread on each request is a bad idea.As hackers can flood with requests to have dos attack.
+To overcome this we can do
+
+1. Rate limiting from particular ip or location
+2. Threadpool - fixed number of threads
+3. Tracking an ip if it has large request
+
+WORKER THREADS ARE MORE USEFUL IN CPU INTENSIVE OPERATIONS RATHER THAN I/O INTENSIVES OPERATIONS. NODE BY ITSELF EXCELS 
+AT HANDLING I/O OPERATIONS.
