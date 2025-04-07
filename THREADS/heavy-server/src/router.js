@@ -10,6 +10,10 @@ module.exports = (server) => {
   // ************ USER ROUTES ************* //
   // ------------------------------------------------ //
 
+  server.route("get", "/api/get-json-data", (req, res) => {
+    res.json({ data: "THis is big size json data".repeat(100) });
+  });
+
   // Log a user in and give them a token
   server.route("post", "/api/login", User.logUserIn);
 
